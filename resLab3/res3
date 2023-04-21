@@ -1,0 +1,23 @@
+\begin{tabular}{|c|c|}
+\hline
+normal n = $20$ & $0.021$\\
+\hline
+normal n = $100$ & $0.01$\\
+\hline
+cauchy n = $20$ & $0.15$\\
+\hline
+cauchy n = $100$ & $0.156$\\
+\hline
+poisson n = $20$ & $0.024$\\
+\hline
+poisson n = $100$ & $0.011$\\
+\hline
+uniform n = $20$ & $0.003$\\
+\hline
+uniform n = $100$ & $0.0$\\
+\hline
+laplace n = $20$ & $0.075$\\
+\hline
+laplace n = $100$ & $0.067$\\
+\hline
+\end{tabular}
