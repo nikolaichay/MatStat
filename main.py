@@ -61,7 +61,6 @@ def get_func(name, x):
 name_dist = ['normal','cauchy','poisson','uniform','laplace']
 #lab_1
 sizes = [10 , 50 , 1000]
-np.random.seed(10)
 def norm_distribution():
     for s in sizes:
         density = norm()
@@ -79,7 +78,6 @@ def norm_distribution():
         fig.savefig('C:/Users/nikol/OneDrive/Рабочий стол/labMatStat/resLab1/' + 'Normal' + str(s) +'.png' )
     return
 
-norm_distribution()
 
 def poisson_distribution():
     for s in sizes:
@@ -97,8 +95,6 @@ def poisson_distribution():
         plt.close(fig)
         fig.savefig('C:/Users/nikol/OneDrive/Рабочий стол/labMatStat/resLab1/' + 'Poisson' + str(s) +'.png' )
     return
-np.random.seed(10)
-poisson_distribution()
 
 def cauchy_distribution():
     for s in sizes:
@@ -117,8 +113,6 @@ def cauchy_distribution():
         fig.savefig('C:/Users/nikol/OneDrive/Рабочий стол/labMatStat/resLab1/' + 'Cauchy' + str(s) +'.png' )
     return
 
-np.random.seed(10)
-cauchy_distribution()
 
 def uniform_distribution():
     for s in sizes:
@@ -136,8 +130,7 @@ def uniform_distribution():
         plt.close(fig)
         fig.savefig('C:/Users/nikol/OneDrive/Рабочий стол/labMatStat/resLab1/' + 'Uniform' + str(s) +'.png' )
     return
-np.random.seed(10)
-uniform_distribution()
+
 
 def laplace_distribution():
     for s in sizes:
@@ -155,8 +148,7 @@ def laplace_distribution():
         plt.close(fig)
         fig.savefig('C:/Users/nikol/OneDrive/Рабочий стол/labMatStat/resLab1/' + 'Laplace'+str(s) +'.png' )
     return
-np.random.seed(10)
-laplace_distribution()
+
 # lab_2
 
 def trimmed_mean(distribit):
@@ -206,7 +198,7 @@ def static_value():
                                     f"{np.around(np.mean(np.multiply(z_q, z_q)) - np.mean(z_q) * np.mean(z_q), decimals=4)} & "
                                     f"{np.around(np.mean(np.multiply(z_tr, z_tr)) - np.mean(z_tr) * np.mean(z_tr), decimals=4)} \\\ \\hline\n")
                 file.write("\\end{tabular}")
-static_value()
+
 # lab3
 def tunkey_box():
     sizes = [20, 100]
@@ -237,7 +229,6 @@ def tunkey_box():
         plt.title(name)
         # plt.show()
         plt.savefig("C:/Users/nikol/OneDrive/Рабочий стол/labMatStat/resLab3//" + name + ".jpg")
-tunkey_box()
 
 def count_emissions():
     sizes = [20, 100]
@@ -262,8 +253,8 @@ def count_emissions():
             f.write(row + "\\\\\n")
             f.write("\\hline\n")
         f.write("\\end{tabular}")
-count_emissions()
 
+#lab4
 def emperic():
     sizes = [20, 60, 100]
     for name in name_dist:
@@ -318,13 +309,18 @@ def kernel():
             plt.close(fig)
 
 if __name__ == "__main__":
+    #np.random.seed(10)
     #norm_distribution()
+    #np.random.seed(10)
     #cauchy_distribution()
+    #np.random.seed(10)
     #poisson_distribution()
+    #np.random.seed(10)
     #uniform_distribution()
+    #np.random.seed(10)
     #laplace_distribution()
-    static_value()
+    #static_value()
     #tunkey_box()
     #count_emissions()
     #emperic()
-    #kernel()
+    kernel()
