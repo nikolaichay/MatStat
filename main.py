@@ -6,6 +6,7 @@ from scipy.stats import poisson, laplace, cauchy, uniform, norm, gaussian_kde
 from statsmodels.distributions.empirical_distribution import ECDF
 from scipy import stats
 from math import erf
+from math import sqrt
 
 
 NORMAL, CAUCHY, POISSON, UNIFORM, LAPLACE = "Нормальное распределение", "Распределение Коши", "Распределение Пуассона", "Равномерное распределение", "Рапределение Лапласса"
@@ -184,7 +185,7 @@ def static_value():
                 z_q.append(zq_get(distribit))
                 z_tr.append(ztr_get(distribit))
             with open('C:/Users/nikol/OneDrive/Рабочий стол/labMatStat/resLab2/' + 'res2' + name + str(s) + '.tex', "w") as file:
-                file.write("\\begin{tabular}{|c|c|c|c|c|c|}\n")
+                file.write("\\begin{tabular}{|c|c|c|c|c|c|c|c|}\n")
                 file.write("\\hline\n")
                 file.write(str(name) + " n= " + str(s) + "& $\overline{x}$ & mediana & $z_r$ & $z_Q$ & $z_{tr}$ \\\ \\hline\n")
                 file.write("E(z) & " + f"{np.around(np.mean(mean), decimals=4)} & "
@@ -197,7 +198,17 @@ def static_value():
                                     f"{np.around(np.mean(np.multiply(z_r, z_r)) - np.mean(z_r) * np.mean(z_r), decimals=4)} & "
                                     f"{np.around(np.mean(np.multiply(z_q, z_q)) - np.mean(z_q) * np.mean(z_q), decimals=4)} & "
                                     f"{np.around(np.mean(np.multiply(z_tr, z_tr)) - np.mean(z_tr) * np.mean(z_tr), decimals=4)} \\\ \\hline\n")
-                file.write("\\end{tabular}")
+                file.write("Интервал. оценка & [" + f"{np.around(np.mean(mean) - sqrt(np.mean(np.multiply(mean, mean)) - np.mean(mean) * np.mean(mean)),decimals = 4) } ;" f"{np.around(np.mean(mean) + sqrt(np.mean(np.multiply(mean, mean)) - np.mean(mean) * np.mean(mean)),decimals = 4) } ] & ["
+                                    f"{np.around(np.mean(med) - sqrt(np.mean(np.multiply(med, med)) - np.mean(med) * np.mean(med)),decimals = 4) } ;" f"{np.around(np.mean(med) + sqrt(np.mean(np.multiply(med, med)) - np.mean(med) * np.mean(med)),decimals = 4) } ] & ["
+                                    f"{np.around(np.mean(z_r) - sqrt(np.mean(np.multiply(z_r, z_r)) - np.mean(z_r) * np.mean(z_r)),decimals = 4) } ;" f"{np.around(np.mean(z_r) + sqrt(np.mean(np.multiply(z_r, z_r)) - np.mean(z_r) * np.mean(z_r)),decimals = 4) } ] & ["
+                                    f"{np.around(np.mean(z_q) - sqrt(np.mean(np.multiply(z_q, z_q)) - np.mean(z_q) * np.mean(z_q)),decimals = 4) } ;" f"{np.around(np.mean(z_q) + sqrt(np.mean(np.multiply(z_q, z_q)) - np.mean(z_q) * np.mean(z_q)),decimals = 4) } ] & ["
+                                    f"{np.around(np.mean(z_tr) - sqrt(np.mean(np.multiply(z_tr, z_tr)) - np.mean(z_tr) * np.mean(z_tr)),decimals = 4) } ;" f"{np.around(np.mean(z_tr) + sqrt(np.mean(np.multiply(z_tr, z_tr)) - np.mean(z_tr) * np.mean(z_tr)),decimals = 4) } ] \\\ \\hline\n" )
+                file.write("Точечная оценка & [" + f"{np.around(np.mean(mean) - sqrt(np.mean(np.multiply(mean, mean)) - np.mean(mean) * np.mean(mean)),decimals = 4) } ;" f"{np.around(np.mean(mean) + sqrt(np.mean(np.multiply(mean, mean)) - np.mean(mean) * np.mean(mean)),decimals = 4) } ] &"
+                                    f"{np.around(np.mean(med) - sqrt(np.mean(np.multiply(med, med)) - np.mean(med) * np.mean(med)),decimals = 4) } ;" f"{np.around(np.mean(med) + sqrt(np.mean(np.multiply(med, med)) - np.mean(med) * np.mean(med)),decimals = 4) } ] &"
+                                    f"{np.around(np.mean(z_r) - sqrt(np.mean(np.multiply(z_r, z_r)) - np.mean(z_r) * np.mean(z_r)),decimals = 4) } ;" f"{np.around(np.mean(z_r) + sqrt(np.mean(np.multiply(z_r, z_r)) - np.mean(z_r) * np.mean(z_r)),decimals = 4) } ] &"
+                                    f"{np.around(np.mean(z_q) - sqrt(np.mean(np.multiply(z_q, z_q)) - np.mean(z_q) * np.mean(z_q)),decimals = 4) } ;" f"{np.around(np.mean(z_q) + sqrt(np.mean(np.multiply(z_q, z_q)) - np.mean(z_q) * np.mean(z_q)),decimals = 4) } ] &"
+                                    f"{np.around(np.mean(z_tr) - sqrt(np.mean(np.multiply(z_tr, z_tr)) - np.mean(z_tr) * np.mean(z_tr)),decimals = 4) } ;" f"{np.around(np.mean(z_tr) + sqrt(np.mean(np.multiply(z_tr, z_tr)) - np.mean(z_tr) * np.mean(z_tr)),decimals = 4) } ] \\\ \\hline\n" )
+                file.write("\\end{tabular} ")
 
 # lab3
 def tunkey_box():
@@ -319,8 +330,8 @@ if __name__ == "__main__":
     #uniform_distribution()
     #np.random.seed(10)
     #laplace_distribution()
-    #static_value()
+    static_value()
     #tunkey_box()
     #count_emissions()
     #emperic()
-    kernel()
+    #kernel()
