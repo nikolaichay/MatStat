@@ -1,6 +1,6 @@
 [tau1, w1, yint1] = DataLinearModel(input, eps)
 sum_w1 = sum(w1)
-
+figure
 hold on
 errorbar(input, eps, "b")
 x = [1, size(input, 1)]
@@ -11,5 +11,5 @@ ylabel("mV")
 xlim([1, size(input, 1)])
 ylim([input(1) - eps * w1(1), input(end) + eps * w1(end)])
 
-print  -dpng ../Result10/data_regr.png
+print  -dpng Result10/data_regr.png
 

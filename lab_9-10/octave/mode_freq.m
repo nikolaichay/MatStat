@@ -2,7 +2,7 @@
 [mode2, modefreq2, freqs2, Ss2] = imodeR([inf(residuals2) sup(residuals2)])
 
 hold on
-
+figure
 plot(Ss1(1:end-1), freqs1, "r")
 plot(Ss2(1:end-1), freqs2, "b")
 
@@ -12,5 +12,5 @@ ylabel("\\mu")
 legend("1st model \\omega \\geq 1", "2nd model \\omega \\geq 0")
 xlim([min(Ss1) max(Ss1)])
 
-print  -dpng ../Result10/mode_freq.png
+print  -dpng Result10/mode_freq.png
 

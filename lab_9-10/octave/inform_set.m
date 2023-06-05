@@ -4,7 +4,7 @@ x = 1:size(input,1).'
 vertices = ir_beta2poly(irproblem)
 
 b_int = ir_outer(irproblem)
-
+figure
 hold on
 x = vertices(:, 1)
 y = vertices(:, 2)
@@ -16,5 +16,5 @@ ylim([min(y) - 1e-7, max(y) + 1e-7])
 xlabel("\\beta_0")
 ylabel("\\beta_1")
 
-print  -dpng ../Result10/inform_set.png
+print  -dpng Result10/inform_set.png
 

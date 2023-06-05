@@ -1,7 +1,7 @@
 setenv ("OCTAVE_LATEX_DEBUG_FLAG", "1")
 
 alpha = sum_w2 / 100
-
+figure
 hold on
 
 plot(w1)
@@ -16,5 +16,5 @@ text(5, alpha + 0.05, "\\alpha");
 
 ylim([0, max(w2) + 0.5])
 
-print  -dpng ../Result10/omegas.png
+print  -dpng Result10/omegas.png
 
